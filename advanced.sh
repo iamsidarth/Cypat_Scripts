@@ -475,6 +475,7 @@ net.ipv4.tcp_timestamps = 0
 net.ipv4.tcp_max_syn_backlog = 2048
 net.ipv4.tcp_synack_retries = 2
 net.ipv4.tcp_syn_retries = 5
+net.ipv4.tcp_rfc1337 = 1
 net.ipv4.icmp_echo_ignore_broadcasts = 1
 net.ipv4.icmp_ignore_bogus_error_responses = 1
 
@@ -489,6 +490,7 @@ kernel.randomize_va_space = 2
 kernel.kptr_restrict = 2
 kernel.dmesg_restrict = 1
 kernel.pid_max = 65536
+kernel.unprivileged_bpf_disabled = 1
 kernel.perf_event_paranoid = 3
 kernel.yama.ptrace_scope = 2
 kernel.sysrq = 0

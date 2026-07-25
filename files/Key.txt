@@ -1,0 +1,46 @@
+** README unavailable because the Google doc it linked to got deleted **
+Forensics question 1 solved
+Forensics question 2 solved
+Forensics question 3 solved
+Removed hidden root newton
+Removed unauthorized user sackbot
+Set a password for sackgirl
+Removed unauthorized hidden user negativatron
+Larry Davinci is not an admin
+Narrator is an admin
+Removed authentication bypass
+Removed authentication bypass
+Removed authentication bypass
+Removed unauthorized MP3 files
+Removed plaintext passsword file
+Removed printers share
+Removed negativatron share
+Removed backdoor in /etc/crontab
+Removed backdoor in roots crontab
+Secure file permissions set for /mnt/moon
+Firewall is enabled
+Changed insecure root password
+A default maxiumum password age is set
+A default minimum password age is set
+Removed bad executable ex1t
+A minimum length has been set for passwords
+Removed startup backdoor
+Firewall allows port 21
+Disabled X11 Forwarding
+Disabled root login via ssh
+SSH Protocol set to 2
+Removed backdoor in crontab
+Secure file permissions set for shadow file
+Removed the timemachine
+moon share does not allow guests
+moon share create mask hardened
+VSFTPD no longer allows anonymous access
+Ignore IPv4 ICMP echo broadcasts
+Automatically checks for updates
+Prohibited software ophcrack removed
+Prohibited software wireshark removed
+Prohibited software postgresql removed
+Prohibited software apache2 removed
+Prohibited software armagetronad removed
+Prohibited software netris removed
+Prohibited software nmap removed

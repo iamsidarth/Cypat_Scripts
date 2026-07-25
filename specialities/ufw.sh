@@ -90,6 +90,17 @@ main() {
     echo "y" | ufw enable 2>&1 | tee -a "$LOG"
     pass "UFW enabled"
 
+    step "UFW Application Profiles"
+    info "Available app profiles:"
+    ufw app list 2>/dev/null | tee -a "$LOG"
+    # Auto-apply profiles for common services
+    for app in "Apache" "Apache Secure" "Apache Full" "OpenSSH" "Nginx HTTPS" "Nginx HTTP" "Nginx Full" "Dovecot" "Postfix" "CUPS"; do
+        if ufw app info "$app" &>/dev/null 2>&1; then
+            info "App profile available: $app — apply if service is required"
+        fi
+    done
+    pass "App profiles listed"
+
     step "Status"
     ufw status verbose | tee -a "$LOG"
 

@@ -131,6 +131,15 @@ PWQ
         sed -i "s/\(pam_unix.so.*\)/\1 remember=5/" /etc/pam.d/common-password
         info "Password history: remember=5"
     fi
+
+    # Null passwords check
+    if ! grep -q "pam_unix.so.*nullok" /etc/pam.d/common-auth 2>/dev/null; then
+        info "Null passwords: nullok not found (good)"
+    else
+        warn "nullok found in PAM auth — removing to block empty passwords"
+        sed -i 's/nullok//g' /etc/pam.d/common-auth
+        info "Removed nullok from PAM auth"
+    fi
     pass "Password complexity configured"
 
     # ── Account lockout ──

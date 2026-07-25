@@ -99,7 +99,42 @@ main() {
         echo "hide_ids=YES" >> "$conf"
     fi
 
-    # Limit connection settings
+    # Anonymous user restrictions
+    if ! grep -q "^anon_upload_enable" "$conf"; then
+        echo "anon_upload_enable=NO" >> "$conf"
+    fi
+    if ! grep -q "^anon_mkdir_write_enable" "$conf"; then
+        echo "anon_mkdir_write_enable=NO" >> "$conf"
+    fi
+    if ! grep -q "^anon_other_write_enable" "$conf"; then
+        echo "anon_other_write_enable=NO" >> "$conf"
+    fi
+    if ! grep -q "^anon_world_readable_only" "$conf"; then
+        echo "anon_world_readable_only=YES" >> "$conf"
+    fi
+    # Ensure anonymous user is mapped to a non-root account
+    if ! grep -q "^ftp_username" "$conf"; then
+        echo "ftp_username=ftp" >> "$conf"
+    fi
+    info "Anonymous FTP: upload=no, mkdir=no, write=no, ftp_username=ftp"
+
+    # PASV passive mode security
+    if ! grep -q "^pasv_enable" "$conf"; then
+        echo "pasv_enable=YES" >> "$conf"
+    fi
+    if ! grep -q "^pasv_min_port" "$conf"; then
+        echo "pasv_min_port=50000" >> "$conf"
+        echo "pasv_max_port=50100" >> "$conf"
+        info "PASV port range: 50000-50100"
+    fi
+    if ! grep -q "^pasv_promiscuous" "$conf"; then
+        echo "pasv_promiscuous=NO" >> "$conf"
+    fi
+    if ! grep -q "^pasv_addr_resolve" "$conf"; then
+        echo "pasv_addr_resolve=NO" >> "$conf"
+    fi
+
+    # Connection limits
     if ! grep -q "^max_clients" "$conf"; then
         echo "max_clients=10" >> "$conf"
         info "max_clients=10"
